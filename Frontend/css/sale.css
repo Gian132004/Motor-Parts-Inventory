@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #4b382a;
+}
+
+.sidebar {
+  background-color: rgb(234, 221, 202); /* Semi-transparent background */;
+  padding: 20px;
+  border-right: 2px solid #b89d77;
+}
+
+.sidebar-title {
+  color: #603e22;
+  font-weight: bold;
+}
+
+.nav-button {
+  background-color: #a04932;
+  color: #ffffff;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.nav-button:hover {
+  background-color: #8e3e29;
+}
+
+.nav-button.active {
+  background-color: #8e3e29;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-danger-sale {
+  background-color: #a04932;
+  border: none;
+}
+
+.btn-danger-sale:hover {
+  background-color: #8e3e29;
+}
+
+button.btn-danger {
+  background-color: #e63946;
+  border: none;
+}
+
+button.btn-danger:hover {
+  background-color: #d62828;
+}
+
+.sales-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sales-table thead {
+  background-color: #F3E4CF;
+}
+
+.sales-table th,
+.sales-table td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sales-table th {
+  color: #704D32;
+  font-size: 16px;
+}
+
+.sales-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.sales-table tfoot {
+  background-color: #FFFFFF;
+}
+
+.sales-table tfoot .total {
+  text-align: right;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #704D32;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+tbody tr {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+tfoot td {
+  font-weight: bold;
+  background-color: #eaeaea;
+}
+
+.checkout-btn {
+  background-color: #a04932;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.checkout-btn:hover {
+  background-color: #8e3e29;
+}
+
+.fs-4 {
+  color: #603e22;
+}
+
+.sidebar a.active {
+  background-color: #8e3e29;
+  color: white;
+}
