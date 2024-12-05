@@ -1,11 +1,10 @@
 .nav-button {
-    background-color: #a04932;
+    background-color: #473afa;
     color: #ffffff;
     border: none;
     font-size: 1rem;
     font-weight: bold;
     padding: 10px 15px;
-    text-align: center;
     text-decoration: none;
     display: block;
     border-radius: 5px;
@@ -14,11 +13,11 @@
   }
   
   .nav-button:hover {
-    background-color: #8e3e29;
+    background-color: #0a0097;
   }
   
   .nav-button.active {
-    background-color: #8e3e29;
+    background-color: #0a0097;
   }
   
   body {
@@ -28,14 +27,14 @@
   }
   
   .sidebar {
-    background-color: rgb(234, 221, 202);
+    background-color: rgb(255, 255, 255);
     padding: 20px;
-    border-right: 2px solid #b89d77;
+    border-right: 2px solid #6655ff;
     min-height: 100vh;
   }
   
   .sidebar-title {
-    color: #603e22;
+    color: #6655ff;
     font-weight: bold;
   }
   
@@ -59,7 +58,7 @@
   }
   
   .card .btn-primary {
-    background-color: #a04932;
+    background-color: #473afa;
     color: #ffffff;
     border: none;
     font-size: 0.9rem;
@@ -72,17 +71,17 @@
   }
   
   .card .btn-primary:hover {
-    background-color: #8e3e29;
+    background-color: #0a0097;
     color: white;
   }
   
   .card .btn-primary:active {
-    background-color: #7a2f1e;
+    background-color: #0a0097;
   }
   
   .checkout-btn {
-    background-color: #8B4513 !important;
-    border-color: #8B4513 !important;
+    background-color: #6655ff !important;
+    border-color: #6655ff !important;
     color: white !important;
     font-weight: bold;
     font-size: 1rem;
@@ -91,17 +90,17 @@
   }
   
   .checkout-btn:hover {
-    background-color: #9f835e;
+    background-color:  #0a0097;
   }
   
   .product-card .card {
-    background-color: #EADDCA;
+    background-color: #d0caea;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     max-width: 250px;
     margin: 10px auto;
-    border: 2px solid #b89d77;
+    border: 2px solid #6655ff;
   }
   
   .product-card .card:hover {
@@ -129,7 +128,7 @@
   
   .total-divider {
     border: 0;
-    border-top: 2px solid #8B4513;
+    border-top: 2px solid #000000;
     margin-top: 20px;
     margin-bottom: 1px;
     width: 100%;
