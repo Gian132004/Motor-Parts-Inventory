@@ -1,0 +1,120 @@
+.nav-button {
+  background-color: #a04932;
+  color: #ffffff;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for scaling */
+  margin-bottom: 10px;
+}
+
+.nav-button:hover {
+  background-color: #8e3e29;
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+.nav-button.active {
+  background-color: #8e3e29;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #4b382a;
+}
+
+.sidebar {
+  background-color: rgb(234, 221, 202); /* Semi-transparent background */;
+  padding: 20px;
+  border-right: 2px solid #b89d77;
+  min-height: 100vh;
+}
+
+.sidebar-title {
+  color: #603e22;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-danger {
+  background-color: #a04932;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for scaling */
+}
+
+.btn-danger:hover {
+  background-color: #8e3e29;
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #f0e6d6;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transition for hover effects */
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow effect */
+  transform: scale(1.03); /* Slight scaling effect on hover */
+}
+
+.card-title {
+  color: #6c4f3d;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #333;
+}
+
+.card .btn-warning {
+  background-color: #a04932;
+  border-color: #8e3e29;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn-warning:hover {
+  background-color: #8e3e29;
+}
+
+button.btn-primary {
+  background-color: #a04932;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for scaling */
+}
+
+button.btn-primary:hover {
+  background-color: #a67545;
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+button.btn-danger {
+  background-color: #e63946;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for scaling */
+}
+
+button.btn-danger:hover {
+  background-color: #d62828;
+  transform: scale(1.05); /* Slight scaling effect */
+}
