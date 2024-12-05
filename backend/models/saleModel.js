@@ -7,6 +7,6 @@ const saleSchema = new mongoose.Schema({
     date: { type: String, required: true }, // Stored as YYYY-MM-DD
 });
 
-const Sale = mongoose.model('Sale', saleSchema);
+const Sale = mongoose.model('motorpartssales', saleSchema);
 
 module.exports = Sale;

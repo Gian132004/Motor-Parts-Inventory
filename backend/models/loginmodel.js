@@ -7,6 +7,6 @@ const loginSchema = new mongoose.Schema({
 });
 
 // Create the Login model
-const Login = mongoose.model('Login', loginSchema);
+const Login = mongoose.model('motorpartslogin', loginSchema);
 
 module.exports = Login;
