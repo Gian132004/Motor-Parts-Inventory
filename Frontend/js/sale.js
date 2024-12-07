@@ -17,10 +17,10 @@ async function fetchSales() {
         // Sort sales by date in descending order (latest first)
         salesData.reverse();
         salesData.sort((a, b) => new Date(b.date) - new Date(a.date));
-       
+
         // Update total sold count and total sales
-        updateTotalSold();
-        updateTotalSales();
+        updateTotalSold(salesData);
+        updateTotalSales(salesData);
 
         // Display the sales data
         displaySales(salesData);
@@ -30,17 +30,14 @@ async function fetchSales() {
     }
 }
 
-
-
-
 // Update total sold count for overall sales (total from all data)
-function updateTotalSold() {
-    const totalSold = salesData.reduce((total, sale) => total + sale.quantity, 0);
+function updateTotalSold(sales) {
+    const totalSold = sales.reduce((total, sale) => total + sale.quantity, 0);
     document.getElementById('totalSold').textContent = totalSold;
 }
 
-function updateTotalSales() {
-    const totalSales = salesData.reduce((total, sale) => total + (sale.quantity * sale.price), 0);
+function updateTotalSales(sales) {
+    const totalSales = sales.reduce((total, sale) => total + (sale.quantity * sale.price), 0);
     document.getElementById('totalSales').textContent = `₱${totalSales.toFixed(2)}`;
 }
 
@@ -71,30 +68,6 @@ function displaySales(sales) {
     updatePaginationButtons(sales);
 }
 
-function updatePaginationButtons(sales) {
-    const totalPages = Math.ceil(sales.length / itemsPerPage);
-    const paginationContainer = document.getElementById('pagination');
-
-    paginationContainer.innerHTML = ''; // Clear previous pagination
-
-    // Create buttons based on the total pages
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
-        button.textContent = i;
-        button.classList.add('btn', 'btn-secondary', 'mx-1');
-
-        // Event listener to go to the corresponding page
-        button.addEventListener('click', () => {
-            currentPage = i;
-            displaySales(sales);
-        });
-
-        paginationContainer.appendChild(button);
-    }
-}
-
-
-
 // Apply filters to the sales data
 function filterSales() {
     const day = document.getElementById('dayFilter').value;
@@ -119,12 +92,9 @@ function filterSales() {
     displaySales(filteredSales);
 
     // Update totals for the filtered sales
-    updateTotalSold();
-    updateTotalSales();
+    updateTotalSold(filteredSales); // Update total sold for filtered sales
+    updateTotalSales(filteredSales); // Update total sales for filtered sales
 }
-
-
-
 
 // Clear filters and reset the table
 function clearFilters() {
@@ -136,8 +106,8 @@ function clearFilters() {
     displaySales(salesData); // Display all sales again
 
     // Update the total sold count and total sales for unfiltered data
-    updateTotalSold();
-    updateTotalSales();
+    updateTotalSold(salesData);
+    updateTotalSales(salesData);
 }
 
 // Update the pagination buttons

@@ -1,11 +1,10 @@
 .nav-button {
-  background-color: #a04932;
+  background-color:#473afa;
   color: #ffffff;
   border: none;
   font-size: 1rem;
   font-weight: bold;
   padding: 10px 15px;
-  text-align: center;
   text-decoration: none;
   display: block;
   border-radius: 5px;
@@ -14,12 +13,12 @@
 }
 
 .nav-button:hover {
-  background-color: #8e3e29;
+  background-color: #0a0097;
   transform: scale(1.05); /* Slight scaling effect */
 }
 
 .nav-button.active {
-  background-color: #8e3e29;
+  background-color: #0a0097;
 }
 
 body {
@@ -29,14 +28,14 @@ body {
 }
 
 .sidebar {
-  background-color: rgb(234, 221, 202); /* Semi-transparent background */;
+  background-color: rgb(255, 255, 255); /* Semi-transparent background */;
   padding: 20px;
-  border-right: 2px solid #b89d77;
+  border-right: 2px solid #6655ff;
   min-height: 100vh;
 }
 
 .sidebar-title {
-  color: #603e22;
+  color: #6655ff;
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 20px;
@@ -82,19 +81,19 @@ body {
 }
 
 .card .btn-warning {
-  background-color: #a04932;
-  border-color: #8e3e29;
+  background-color: #473afa;
+  border-color: #473afa;
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .card .btn-warning:hover {
-  background-color: #8e3e29;
+  background-color: #0a0097;
 }
 
 button.btn-primary {
-  background-color: #a04932;
+  background-color: #473afa;
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
@@ -102,7 +101,7 @@ button.btn-primary {
 }
 
 button.btn-primary:hover {
-  background-color: #a67545;
+  background-color: #0a0097;
   transform: scale(1.05); /* Slight scaling effect */
 }
 

@@ -23,7 +23,11 @@ async function fetchProducts() {
         displayProducts(products);
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to load products');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Failed to load products',
+        });
     }
 }
 
@@ -91,17 +95,29 @@ document.getElementById('addProductForm').addEventListener('submit', async funct
 
         if (response.ok) {
             const newProduct = await response.json();
-            alert('Product added successfully');
+            Swal.fire({
+                icon: 'success',
+                title: 'Product Added',
+                text: 'The product has been added successfully!',
+            });
             fetchProducts(); // Refresh the product list
             document.getElementById('addProductForm').reset();
             document.getElementById('addProductModal').querySelector('.btn-close').click();
         } else {
             const error = await response.json();
-            alert('Failed to add product: ' + error.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Failed to Add Product',
+                text: error.message,
+            });
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to add product');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Failed to add product',
+        });
     }
 });
 
@@ -113,7 +129,11 @@ async function openEditModal(productId) {
         const product = products.find(p => p._id === productId);
 
         if (!product) {
-            alert('Product not found!');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Product not found!',
+            });
             return;
         }
 
@@ -136,7 +156,11 @@ async function openEditModal(productId) {
         modal.show();
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to load product details');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Failed to load product details',
+        });
     }
 }
 
@@ -146,7 +170,11 @@ document.getElementById('editProductForm').addEventListener('submit', async func
 
     const productId = e.target.dataset.id;
     if (!productId) {
-        alert('Product ID is missing!');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Product ID is missing!',
+        });
         return;
     }
 
@@ -167,40 +195,72 @@ document.getElementById('editProductForm').addEventListener('submit', async func
         });
 
         if (response.ok) {
-            alert('Product updated successfully');
+            Swal.fire({
+                icon: 'success',
+                title: 'Product Updated',
+                text: 'The product has been updated successfully!',
+            });
             fetchProducts(); // Refresh the product list
             const modal = bootstrap.Modal.getInstance(document.getElementById('editProductModal'));
             modal.hide(); // Close the modal
         } else {
             const error = await response.json();
-            alert('Failed to update product: ' + error.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Failed to Update Product',
+                text: error.message,
+            });
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to update product');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Failed to update product',
+        });
     }
 });
 
 // Delete a product
 async function deleteProduct(productId) {
-    if (!confirm('Are you sure you want to delete this product?')) {
-        return;
-    }
+    const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!',
+    });
 
-    try {
-        const response = await fetch(`http://localhost:5500/api/products/delete/${productId}`, {
-            method: 'DELETE',
-        });
+    if (result.isConfirmed) {
+        try {
+            const response = await fetch(`http://localhost:5500/api/products/delete/${productId}`, {
+                method: 'DELETE',
+            });
 
-        if (response.ok) {
-            alert('Product deleted successfully');
-            fetchProducts(); // Refresh the product list
-        } else {
-            const error = await response.json();
-            alert('Failed to delete product: ' + error.message);
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'The product has been deleted.',
+                });
+                fetchProducts(); // Refresh the product list
+            } else {
+                const error = await response.json();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to Delete Product',
+                    text: error.message,
+                });
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Failed to delete product',
+            });
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to delete product');
     }
 }
