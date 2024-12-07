@@ -5,9 +5,9 @@ body {
 }
 
 .sidebar {
-  background-color: rgb(234, 221, 202); /* Semi-transparent background */;
+  background-color: rgb(255, 255, 255); /* Semi-transparent background */;
   padding: 20px;
-  border-right: 2px solid #b89d77;
+  border-right: 2px solid #6655ff;
 }
 
 .sidebar-title {
@@ -16,13 +16,12 @@ body {
 }
 
 .nav-button {
-  background-color: #a04932;
+  background-color: #473afa;
   color: #ffffff;
   border: none;
   font-size: 1rem;
   font-weight: bold;
   padding: 10px 15px;
-  text-align: center;
   text-decoration: none;
   display: block;
   border-radius: 5px;
@@ -31,11 +30,11 @@ body {
 }
 
 .nav-button:hover {
-  background-color: #8e3e29;
+  background-color: #0a0097;
 }
 
 .nav-button.active {
-  background-color: #8e3e29;
+  background-color: #0a0097;
 }
 
 .btn-danger {
@@ -155,6 +154,6 @@ tfoot td {
 }
 
 .sidebar a.active {
-  background-color: #8e3e29;
+  background-color: #0a0097;
   color: white;
 }

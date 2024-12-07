@@ -31,7 +31,7 @@ async function fetchProducts() {
         displayProducts(products);
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to load products');
+        Swal.fire('Error', 'Failed to load products', 'error');
     }
 }
 
@@ -99,7 +99,7 @@ function addProductToCart(e) {
     let productStock = parseInt(button.dataset.stock);
 
     if (productStock <= 0) {
-        alert(`Product "${productName}" is out of stock.`);
+        Swal.fire('Out of Stock', `Product "${productName}" is out of stock.`, 'error');
         return;
     }
 
@@ -108,7 +108,7 @@ function addProductToCart(e) {
         if (existingProduct.quantity < productStock) {
             existingProduct.quantity++;
         } else {
-            alert(`Only ${productStock} units available for "${productName}".`);
+            Swal.fire('Stock Limit', `Only ${productStock} units available for "${productName}".`, 'info');
             return;
         }
     } else {
@@ -140,7 +140,7 @@ function updateProductQuantity(productId, change) {
         removeProductFromCart(productId);
     } else if (product.quantity > product.stock) {
         product.quantity = product.stock;
-        alert(`Only ${product.stock} units available for "${product.name}".`);
+        Swal.fire('Stock Limit', `Only ${product.stock} units available for "${product.name}".`, 'info');
     }
     renderCart();
 }
@@ -181,21 +181,42 @@ function renderCart() {
 // Checkout and display a receipt
 async function checkout() {
     if (cart.length === 0) {
-        alert('Cart is empty. Please add products.');
+        Swal.fire('Empty Cart', 'Cart is empty. Please add products.', 'info');
         return;
     }
 
+    const { value: paymentInput } = await Swal.fire({
+        title: 'Enter Payment Amount',
+        input: 'text',
+        inputLabel: 'Customer Payment',
+        inputPlaceholder: 'Enter payment amount',
+        inputValidator: (value) => {
+            if (!value || isNaN(value) || parseFloat(value) <= 0) {
+                return 'Please enter a valid payment amount!';
+            }
+        }
+    });
+
+    const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const payment = parseFloat(paymentInput);
+
+    if (payment < totalAmount) {
+        Swal.fire('Insufficient Payment', 'The payment amount is less than the total.', 'error');
+        return;
+    }
+
+    const change = payment - totalAmount;
+
     try {
         const salesPromises = cart.map(async item => {
-            // Save sale to MongoDB with price field included
             const response = await fetch('http://localhost:5500/api/sales/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     title: item.name,
                     quantity: item.quantity,
-                    price: item.price,  // Include price in request body
-                    date: new Date().toISOString().split('T')[0], // YYYY-MM-DD
+                    price: item.price,  
+                    date: new Date().toISOString().split('T')[0], 
                 }),
             });
 
@@ -203,7 +224,6 @@ async function checkout() {
                 throw new Error(`Failed to save sale for ${item.name}`);
             }
 
-            // Update product stock in the backend
             await fetch(`http://localhost:5500/api/products/update-stock/${item.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -216,9 +236,9 @@ async function checkout() {
         cart = [];
         renderCart();
         fetchProducts();
-        alert('Checkout successful!');
+        Swal.fire('Checkout Successful', `Change: ₱${change.toFixed(2)}`, 'success');
     } catch (error) {
         console.error('Error during checkout:', error);
-        alert('Failed to process checkout');
+        Swal.fire('Checkout Failed', 'Failed to process checkout', 'error');
     }
 }
