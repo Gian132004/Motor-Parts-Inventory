@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url('/Frontend/images/1.jpg');
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the background fixed during scrolling */
+    background-repeat: no-repeat; /* Prevents tiling of the image */
+}
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind other elements */
+}
+.combined-container {
+    display: flex;
+    flex-direction: row; /* Landscape layout */
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 30px;
+    background-color: rgb(234, 221, 202); /* Semi-transparent background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    max-width: 900px; /* Maximum width to keep the container compact */
+}
+
+.logo {
+    width: 400px; /* Adjust logo size */
+    height: auto;
+    margin-right: 30px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Smaller width for the login form */
+    padding: 20px;
+    text-align: left;
+}
+
+.login-title {
+    text-align: center;
+    font-size: 1.5rem; /* Smaller title */
+}
+
+.welcome-message {
+    text-align: center;
+    margin: 10px 0 20px;
+}
+
+.email-label, .password-label {
+    font-weight: 400;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.frame1, .frame2 {
+    width: 100%;
+    height: 45px; /* Smaller input fields */
+    border-radius: 25px;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    border: 2px solid black;
+    background: #FFFFFF;
+}
+
+.frame1:focus, .frame2:focus {
+    border-color: black;
+    outline: none;
+}
+
+.frame3 {
+    width: 100%;
+    height: 45px; /* Smaller button */
+    background: #90604C;
+    color: #FFFFFF;
+    font-weight: 800;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+.frame3:active {
+    background-color: #704236;
+}
+
+.forgot-password {
+    font-weight: 300;
+    color: #90604C;
+    text-decoration: underline;
+    margin-top: 15px;
+    display: block;
+    text-align: center;
+}
