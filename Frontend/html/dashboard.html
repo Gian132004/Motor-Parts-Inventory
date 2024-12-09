@@ -33,14 +33,31 @@
           <h1 class="main-title fs-4 fw-bold">DASHBOARD</h1>
         </div>
 
+        <!-- Summary Cards -->
+        <div class="row my-4">
+          <div class="col-md-6">
+            <div class="card text-center bg-primary text-white">
+              <div class="card-body">
+                <h5 class="card-title">Total Stocks</h5>
+                <h2 id="totalStocks">0</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card text-center bg-danger text-white">
+              <div class="card-body">
+                <h5 class="card-title">Total Sales (₱)</h5>
+                <h2 id="totalSales">0</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Graph Containers -->
         <div class="row">
-          <!-- Monthly Sales Line Chart -->
           <div class="col-md-6">
             <canvas id="salesLineChart"></canvas>
           </div>
-
-          <!-- Sold Products Bar Chart -->
           <div class="col-md-6">
             <canvas id="soldBarChart"></canvas>
           </div>

@@ -7,6 +7,10 @@ async function fetchDashboardData() {
 
     const data = await response.json();
 
+    // Populate Summary Cards
+    document.getElementById('totalStocks').textContent = data.totalStocks.toLocaleString();
+    document.getElementById('totalSales').textContent = data.totalSales.toLocaleString('en-PH', { style: 'currency', currency: 'PHP' });
+
     // Populate Charts
     updateSalesLineChart(data.monthlySales);
     updateSoldBarChart(data.productQuantities);
@@ -20,7 +24,7 @@ function updateSalesLineChart(monthlySales) {
   const labels = monthlySales.map((entry) => entry._id); // Month-Year
   const values = monthlySales.map((entry) => entry.totalSales);
 
-  const salesLineChart = new Chart(document.getElementById('salesLineChart'), {
+  new Chart(document.getElementById('salesLineChart'), {
     type: 'line',
     data: {
       labels,
@@ -41,7 +45,7 @@ function updateSoldBarChart(productQuantities) {
   const labels = productQuantities.map((entry) => entry._id); // Product names
   const values = productQuantities.map((entry) => entry.totalQuantity);
 
-  const soldBarChart = new Chart(document.getElementById('soldBarChart'), {
+  new Chart(document.getElementById('soldBarChart'), {
     type: 'bar',
     data: {
       labels,
