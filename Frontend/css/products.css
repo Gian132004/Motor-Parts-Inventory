@@ -117,3 +117,6 @@ button.btn-danger:hover {
   background-color: #d62828;
   transform: scale(1.05); /* Slight scaling effect */
 }
+.fs-4 {
+  color: #0a0097;
+}

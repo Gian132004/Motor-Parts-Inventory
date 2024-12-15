@@ -100,14 +100,10 @@ button.btn-danger:hover {
   background-color: #8e3e29;
 }
 
-.fs-4 {
-  color: #603e22;
-}
-
 .sidebar a.active {
   background-color: #0a0097;
   color: white;
 }
 .fs-4 {
-  color: #603e22;
+  color:#0a0097;
 }
