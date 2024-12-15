@@ -8,11 +8,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const session = require('express-session');
 
 // Import routes
 const sysroute = require('./routes/route'); // Example route
 const productRoutes = require('./routes/productRoutes'); // Product-related routes
 const saleRoutes = require('./routes/saleRoute');
+
+
 
 
 // Initialize Express app
@@ -21,6 +24,11 @@ const app = express();
 // Middleware
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // Parse incoming JSON requests
+app.use(session({
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 // Routes
 app.use('/api/route', sysroute); // Example route

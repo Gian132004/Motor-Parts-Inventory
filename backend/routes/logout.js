@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Login = require('../models/loginmodel'); // Import login model
-const { logoutUser } = require('../controllers/authController'); // Import the logoutUser
+const { logoutUser } = require('../controllers/authController'); // Import the logoutUser function from the controller
 
-// Login route
+// Existing login route...
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
 
@@ -22,6 +21,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Logout route
 router.post('/logout', logoutUser);  // Add this route for logging out
 
 module.exports = router;

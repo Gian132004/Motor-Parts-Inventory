@@ -1,5 +1,42 @@
 document.addEventListener('DOMContentLoaded', fetchDashboardData);
 
+// Add the logout function to your dashboard.js
+async function logoutUser() {
+  try {
+    const response = await fetch('http://localhost:5500/api/route/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Logged Out',
+        text: 'You have been logged out successfully.',
+      }).then(() => {
+        window.location.href = '/Frontend/html/index.html'; // Redirect to the login page or any desired page
+      });
+    } else {
+      const errorData = await response.json();
+      Swal.fire({
+        icon: 'error',
+        title: 'Logout Failed',
+        text: errorData.message || 'An error occurred while logging out.',
+      });
+    }
+  } catch (error) {
+    console.error('Error during logout:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Logout Failed',
+      text: 'An error occurred while logging out. Please try again.',
+    });
+  }
+}
+
+
 async function fetchDashboardData() {
   try {
     const response = await fetch('http://localhost:5500/api/sales/dashboard-summary'); // Adjust port if needed
