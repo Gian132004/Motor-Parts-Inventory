@@ -66,7 +66,7 @@ function updateSalesLineChart(monthlySales) {
     data: {
       labels,
       datasets: [{
-        label: 'Year Sales Revenue (₱)',
+        label: 'Monthly Sales Revenue (₱)',
         data: values,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
